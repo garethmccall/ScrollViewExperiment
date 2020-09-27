@@ -1,0 +1,10 @@
+{
+	"[json]": {
+		"editor.formatOnSave": false
+	},
+	"[yaml]": {
+		"editor.formatOnSave": false
+	},
+	"editor.formatOnSave": true,
+	"typescript.tsdk": "node_modules/typescript/lib"
+}
