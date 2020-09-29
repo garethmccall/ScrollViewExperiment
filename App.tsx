@@ -48,7 +48,7 @@ const d = Dimensions.get('window');
 
 const SEARCH_BAR_HEIGHT = 42;
 const INTRO_BANNER_HEIGHT = 220;
-const STATUS_BAR_HEIGHT = 20;
+const STATUS_BAR_HEIGHT = d.height === 812 ? 44 : 20;
 
 export default class App extends Component<{}, State> {
 	searchBar = React.createRef<TextInput>();
@@ -185,7 +185,7 @@ export default class App extends Component<{}, State> {
 								],
 								outputRange: [SEARCH_BAR_HEIGHT, SEARCH_BAR_HEIGHT, 0],
 								extrapolate: 'clamp',
-								easing: Easing.step0,
+								easing: Platform.OS === 'ios' ? Easing.step0 : undefined,
 							}),
 						}}
 					/>
@@ -291,7 +291,7 @@ export default class App extends Component<{}, State> {
 							],
 							outputRange: [0, 0, SEARCH_BAR_HEIGHT],
 							extrapolate: 'clamp',
-							easing: Easing.step0,
+							easing: Platform.OS === 'ios' ? Easing.step0 : undefined,
 						}),
 					}}>
 					<SectionList
@@ -299,7 +299,7 @@ export default class App extends Component<{}, State> {
 						sections={this.state.sections}
 						renderItem={this.renderItem}
 						renderSectionHeader={this.renderSectionHeader}
-						scrollEventThrottle={8}
+						scrollEventThrottle={32}
 						stickySectionHeadersEnabled
 						onScroll={Animated.event(
 							[{ nativeEvent: { contentOffset: { y: this.scrollY } } }],
