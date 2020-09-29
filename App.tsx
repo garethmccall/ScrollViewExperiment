@@ -24,7 +24,12 @@ import {
 	LayoutAnimation,
 	Easing,
 } from 'react-native';
-import { KEYBOARD_HEIGHT } from './constants';
+import {
+	INTRO_BANNER_HEIGHT,
+	KEYBOARD_HEIGHT,
+	SEARCH_BAR_HEIGHT,
+	STATUS_BAR_HEIGHT,
+} from './constants';
 var loremIpsum = require('lorem-ipsum-react-native'),
 	output = loremIpsum();
 
@@ -46,10 +51,6 @@ interface State {
 }
 
 const d = Dimensions.get('window');
-
-const SEARCH_BAR_HEIGHT = 42;
-const INTRO_BANNER_HEIGHT = 220;
-const STATUS_BAR_HEIGHT = d.height === 812 ? 44 : 20;
 
 export default class App extends Component<{}, State> {
 	searchBar = React.createRef<TextInput>();
