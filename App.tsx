@@ -169,7 +169,7 @@ export default class App extends Component<{}, State> {
 						}}
 						style={{
 							backgroundColor: '#00AAFF',
-							height: this.state.showBanner ? INTRO_BANNER_HEIGHT : 0,
+							height: !this.state.searchFieldFocused ? INTRO_BANNER_HEIGHT : 0,
 							justifyContent: 'center',
 							alignItems: 'center',
 						}}>
@@ -283,6 +283,7 @@ export default class App extends Component<{}, State> {
 				{this.renderFloatingSearchBar()}
 				<Animated.View
 					style={{
+						flex: 1,
 						marginTop: this.scrollY.interpolate({
 							inputRange: [
 								0,
