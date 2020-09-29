@@ -24,6 +24,7 @@ import {
 	LayoutAnimation,
 	Easing,
 } from 'react-native';
+import { KEYBOARD_HEIGHT } from './constants';
 var loremIpsum = require('lorem-ipsum-react-native'),
 	output = loremIpsum();
 
@@ -294,6 +295,7 @@ export default class App extends Component<{}, State> {
 							extrapolate: 'clamp',
 							easing: Platform.OS === 'ios' ? Easing.step0 : undefined,
 						}),
+						marginBottom: this.state.searchFieldFocused ? KEYBOARD_HEIGHT : 0,
 					}}>
 					<SectionList
 						ref={this.sectionList}
